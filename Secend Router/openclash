@@ -14,7 +14,6 @@ config openclash 'config'
 	option ipv6_dns '0'
 	option enable_custom_clash_rules '0'
 	option other_rule_auto_update '0'
-	option en_mode 'fake-ip'
 	option enable_redirect_dns '1'
 	option servers_if_update '0'
 	option disable_masq_cache '1'
@@ -22,7 +21,6 @@ config openclash 'config'
 	option log_level '0'
 	option proxy_mode 'rule'
 	option intranet_allowed '1'
-	option enable_udp_proxy '1'
 	option disable_udp_quic '1'
 	option enable_rule_proxy '0'
 	option filter_aaaa_dns '0'
@@ -65,7 +63,6 @@ config openclash 'config'
 	option disable_quic_go_gso '0'
 	option enable_custom_domain_dns_server '0'
 	option skip_proxy_address '1'
-	option china_ip_route '0'
 	option lan_interface_name '0'
 	option auto_restart '0'
 	option auto_restart_week_time '1'
@@ -99,13 +96,16 @@ config openclash 'config'
 	option config_auto_update_mode '0'
 	option config_update_week_time '0'
 	option auto_update_time '3'
-	option github_address_mod 'https://testingcf.jsdelivr.net/'
-	option enable '1'
-	option config_path '/etc/openclash/config/魔戒.yaml'
+	option github_address_mod '0'
 	option restart '0'
+	option enable '1'
+	option en_mode 'fake-ip-mix'
+	option config_path '/etc/openclash/config/Ring.yaml'
+	option china_ip_route '1'
 	option redirect_dns '1'
 	option dnsmasq_cachesize '0'
 	option cachesize_dns '1'
+	option stack_type 'gvisor'
 
 config dns_servers
 	option type 'udp'
@@ -138,16 +138,9 @@ config dns_servers
 config dns_servers
 	option group 'nameserver'
 	option type 'udp'
-	option enabled '1'
 	option disable_ipv6 '0'
 	option ip '211.139.5.29'
-
-config dns_servers
-	option group 'nameserver'
-	option type 'udp'
-	option ip '119.28.28.28'
-	option enabled '0'
-	option disable_ipv6 '0'
+	option enabled '1'
 
 config dns_servers
 	option group 'nameserver'
@@ -155,20 +148,6 @@ config dns_servers
 	option ip '223.5.5.5'
 	option enabled '0'
 	option disable_ipv6 '0'
-
-config dns_servers
-	option type 'https'
-	option ip 'doh.pub/dns-query'
-	option group 'nameserver'
-	option disable_ipv6 '0'
-	option enabled '0'
-
-config dns_servers
-	option type 'https'
-	option ip 'dns.alidns.com/dns-query'
-	option group 'nameserver'
-	option disable_ipv6 '0'
-	option enabled '0'
 
 config dns_servers
 	option enabled '0'
@@ -373,7 +352,6 @@ config authentication
 
 config config_subscribe
 	option enabled '1'
-	option name '魔戒'
 	option address 'https://msub.lyf520.xyz/api/v1/client/subscribe?token=15eeeeb21583b60c0d69188aa39d13ea'
 	option sub_ua 'clash.meta'
 	option sub_convert '1'
@@ -383,7 +361,8 @@ config config_subscribe
 	option sort 'false'
 	option node_type 'false'
 	option rule_provider 'false'
-	option convert_address 'http://localhost:25500/sub'
-	option custom_template_url 'https://raw.githubusercontent.com/liandu2024/clash/refs/heads/main/Clash-LIAN.ini'
 	option emoji 'true'
+	option convert_address 'https://nsub.echow8200.workers.dev/sub'
+	option name 'Ring'
+	option custom_template_url 'https://raw.githubusercontent.com/JohnnyW820/clash/refs/heads/main/Proxy/clash_Johnny.ini'
 
